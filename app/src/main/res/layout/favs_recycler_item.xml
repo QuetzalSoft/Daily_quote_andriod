@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/_5sdp"
+    android:layout_margin="@dimen/_5sdp"
+    android:elevation="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_10sdp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/quotelayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        >
+
+        <TextView
+            android:id="@+id/quotelabel"
+            android:shadowColor="#000"
+            android:visibility="gone"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quote :"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/white"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            />
+
+        <TextView
+            android:id="@+id/quote"
+            android:layout_toRightOf="@id/quotelabel"
+            android:padding="@dimen/_5sdp"
+            android:textColor="#000"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:inputType="textMultiLine"
+            android:text="The quote will be presented here and the quote can consist of many lines, our view is responsive"
+            />
+        <TextView
+            android:id="@+id/author"
+            android:visibility="gone"
+            android:layout_below="@id/quote"
+            android:padding="@dimen/_5sdp"
+            android:shadowColor="#000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            android:shadowRadius="1.6"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:text="~author"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageButton
+            android:id="@+id/addtofav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingTop="@dimen/_2sdp"
+            android:tag="0"
+            android:tint="#EF0000"
+            android:layout_below="@id/author"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_fav_recycler"
+            />
+        <ImageButton
+            android:id="@+id/share"
+            android:visibility="gone"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_below="@id/author"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="2dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share"
+            android:tag="0" />
+
+    </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

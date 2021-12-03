@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/menu_Setting" android:title="Setting" android:icon="@drawable/ic_baseline_settings_24" android:iconTint="#000"></item>
+<item android:id="@+id/menu_fav" android:title="Favourites" android:icon="@drawable/ic_favorite" android:iconTint="#000"></item>
+<item android:id="@+id/menu_logout" android:title="Logout" android:iconTint="#000"></item>
+</menu>

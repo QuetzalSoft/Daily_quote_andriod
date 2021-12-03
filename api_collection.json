@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "a6031f4f-39f2-4235-bff7-9346c6dfb5a1",
+		"name": "DailyQuote",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fotorget Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hassanrazaquetzal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Hassan",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "Hassan Raza",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "address",
+							"value": "Multan",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone_number",
+							"value": "030988132",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/forget_password",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"forget_password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hassanrazaquetzal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "345",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "Hassan",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Pakistan",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "9985793485",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/users_register",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"users_register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hassanrazaquetzal@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/login",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Fav By User ID ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/all_fav",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"all_fav"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show All Quotes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/show_quotes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"show_quotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Streak Count",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quote_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "streak_count",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/streak_count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"streak_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Fav",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quote_id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "is_fav",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/add_fav",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"add_fav"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Un Fav",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "quote_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/un_fav",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"un_fav"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Quote Info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quote_id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/quote_info",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"quote_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show all streaks",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "quote_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://quetzal-soft.com/dailyquote/api/show_all_streaks",
+					"protocol": "https",
+					"host": [
+						"quetzal-soft",
+						"com"
+					],
+					"path": [
+						"dailyquote",
+						"api",
+						"show_all_streaks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
