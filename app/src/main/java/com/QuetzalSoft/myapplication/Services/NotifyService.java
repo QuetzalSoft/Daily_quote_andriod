@@ -31,8 +31,9 @@ import java.util.TimerTask;
 
 public class NotifyService extends Service {
 
-int delay =1000;
-public static int show_noti;
+    int delay = 1000;
+    public static int show_noti;
+
     public NotifyService() {
     }
 
@@ -63,39 +64,39 @@ public static int show_noti;
     public void onDestroy() {
     }
 
-    void show_notification(){
-            if(show_noti ==1) {
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                            .build();
+    void show_notification() {
+        if (show_noti == 1) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                        .build();
 
 
-                    NotificationChannel channel = new NotificationChannel("1", "1", NotificationManager.IMPORTANCE_DEFAULT);
-                    NotificationManager notificationManager = getSystemService(NotificationManager.class);
-                    notificationManager.createNotificationChannel(channel);
-                }
-
-                Intent activityIntent = new Intent(getApplicationContext(), Login.class);
-                PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),
-                        0, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-                Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-                NotificationCompat.Builder builder =
-                        new NotificationCompat.Builder(getApplicationContext(), "1")
-                                .setSmallIcon(R.drawable.dailythought)
-                                .setContentTitle("The Daily Thought")
-                                .setContentText("There is a new quote to motivate you.")
-                                .setColor(getResources().getColor(R.color.colorPrimary))
-                                .setContentIntent(contentIntent)
-                                .setSound(soundUri)
-                                .setAutoCancel(true);
-
-                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getApplicationContext());
-                managerCompat.notify(111, builder.build());
-
+                NotificationChannel channel = new NotificationChannel("1", "1", NotificationManager.IMPORTANCE_DEFAULT);
+                NotificationManager notificationManager = getSystemService(NotificationManager.class);
+                notificationManager.createNotificationChannel(channel);
             }
+
+            Intent activityIntent = new Intent(getApplicationContext(), Login.class);
+            PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(),
+                    0, activityIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(getApplicationContext(), "1")
+                            .setSmallIcon(R.drawable.dailythought)
+                            .setContentTitle("The Daily Thought")
+                            .setContentText("There is a new quote to motivate you.")
+                            .setColor(getResources().getColor(R.color.colorPrimary))
+                            .setContentIntent(contentIntent)
+                            .setSound(soundUri)
+                            .setAutoCancel(true);
+
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getApplicationContext());
+            managerCompat.notify(111, builder.build());
+
+        }
     }
 }

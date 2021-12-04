@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -163,6 +165,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //End
+
+        //Update Widget
+        Intent intent = new Intent(this, QuoteWidget.class);
+        intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        // Use an array and EXTRA_APPWIDGET_IDS instead of AppWidgetManager.EXTRA_APPWIDGET_ID,
+        // since it seems the onUpdate() is only fired on that:
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), QuoteWidget.class));
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids);
+        sendBroadcast(intent);
 
      /*   Call<ShowQuotesResponse> call = ApiClicent.getInstance().getApi().show_quotes(user_data.uid);
         call.enqueue(new Callback<ShowQuotesResponse>() {
@@ -1131,7 +1142,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (progress == duration){
+                if (progress == duration) {
                     seekBar.setProgress(0);
                     play_lesson_time_start.setText(convertFormat(currentposition));
                 }
@@ -1257,5 +1268,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
 
 }

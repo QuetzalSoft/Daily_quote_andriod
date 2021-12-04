@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -173,23 +172,30 @@
                         android:background="#F2F2F2"
                         android:gravity="start|center_vertical"
                         android:hint="@string/password"
-                        android:inputType="text"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
                         android:paddingStart="@dimen/_30sdp"
                         android:paddingLeft="@dimen/_30sdp"
                         android:paddingEnd="40dp"
                         android:paddingRight="40dp"
+                        android:singleLine="true"
                         android:textColor="#000"
                         android:textColorHint="#AAA9A9" />
 
+                    <!--
+                                        app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
+                    -->
+
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/eye"
+                        android:layout_width="@dimen/_20sdp"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="@dimen/_8sdp"
                         android:background="#F2F2F2"
-                        app:srcCompat="@drawable/ic_baseline_remove_red_eye_24"
-                        app:tint="#000"
+                        app:srcCompat="@drawable/invisible"
+                        app:tint="@color/colorPrimary"
                         tools:ignore="VectorDrawableCompat" />
 
 
@@ -289,9 +295,9 @@
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
-                    android:textColor="@color/white"
                     android:text="@string/create_a_new_account"
                     android:textAllCaps="false"
+                    android:textColor="@color/white"
                     android:textSize="20dp" />
 
             </androidx.cardview.widget.CardView>

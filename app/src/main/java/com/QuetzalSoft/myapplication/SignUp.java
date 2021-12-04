@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,7 @@ public class SignUp extends AppCompatActivity {
     TextView logintext, CreateNewAccountBtn2;
     EditText usernamedit, emailedit, passedit, numberedit, addressedit;
     SpinKitView spinKitView;
+    ImageView eye;//passedit
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +41,30 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        eye = findViewById(R.id.eye);
+        passedit = findViewById(R.id.passedit);
+
+        eye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (passedit.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
+                    passedit.setTransformationMethod(new SingleLineTransformationMethod());
+                    Drawable drawable = getResources().getDrawable(R.drawable.ic_baseline_remove_red_eye_24);
+                    eye.setImageDrawable(drawable);
+                } else {
+                    Drawable drawable = getResources().getDrawable(R.drawable.invisible);
+                    eye.setImageDrawable(drawable);
+                    passedit.setTransformationMethod(new PasswordTransformationMethod());
+                }
+                passedit.setSelection(passedit.getText().length());
+            }
+        });
+
+
         spinKitView = findViewById(R.id.Register_spin_kit);
         logintext = findViewById(R.id.LoginText);
         usernamedit = findViewById(R.id.usernamedit);
         emailedit = findViewById(R.id.emailedit);
-        passedit = findViewById(R.id.passedit);
         numberedit = findViewById(R.id.numberedit);
         addressedit = findViewById(R.id.addressedit);
         CreateNewAccountBtn2 = findViewById(R.id.CreateNewAccountBtn2);

@@ -1,17 +1,23 @@
 package com.QuetzalSoft.myapplication;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.SingleLineTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,13 +34,34 @@ import retrofit2.Response;
 public class Login extends AppCompatActivity {
 
     TextView loginbtn, ForgetPasswordText, CreateNewAccountBtn;
-    EditText username, password;
+    EditText username, password, Password;
+    ImageView eye;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        password = findViewById(R.id.Password);
+        eye = findViewById(R.id.eye);
+
+
+        eye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (password.getTransformationMethod().getClass().getSimpleName().equals("PasswordTransformationMethod")) {
+                    password.setTransformationMethod(new SingleLineTransformationMethod());
+                    Drawable drawable = getResources().getDrawable(R.drawable.ic_baseline_remove_red_eye_24);
+                    eye.setImageDrawable(drawable);
+                } else {
+                    Drawable drawable = getResources().getDrawable(R.drawable.invisible);
+                    eye.setImageDrawable(drawable);
+                    password.setTransformationMethod(new PasswordTransformationMethod());
+                }
+
+                password.setSelection(password.getText().length());
+            }
+        });
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(Login.this);
         String name = preferences.getString("username", "empty");
@@ -58,7 +85,6 @@ public class Login extends AppCompatActivity {
         CreateNewAccountBtn = findViewById(R.id.CreateNewAccountBtn);
         loginbtn = findViewById(R.id.loginbtn);
         username = findViewById(R.id.userName1);
-        password = findViewById(R.id.Password);
         ForgetPasswordText = findViewById(R.id.ForgetPasswordText);
 
         ForgetPasswordText.setOnClickListener(new View.OnClickListener() {
